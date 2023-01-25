@@ -6,12 +6,12 @@ export default class LoginService {
   public login = async (login: ILogin) => {
     const { email, password } = login;
 
-    const user = await Users.findOne({ where: { email } });
-    if (!user) return undefined;
+    const findUser = await Users.findOne({ where: { email } });
+    if (!findUser) return undefined;
 
-    const result = await bcrypt.compare(password, user.password);
+    const result = await bcrypt.compare(password, findUser.password);
     if (!result) return undefined;
 
-    return user;
+    return findUser;
   };
 }
