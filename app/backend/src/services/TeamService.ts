@@ -1,15 +1,13 @@
 import Teams from '../database/models/Teams';
 
 export default class TeamService {
-  constructor(private _model = Teams) { }
-
-  public async getAllTeams() {
-    const teams = await this._model.findAll();
+  public getAllTeams = async () => {
+    const teams = await Teams.findAll();
     return teams;
-  }
+  };
 
-  public async getTeamById(id: string) {
-    const team = await this._model.findByPk(id);
+  public getTeamById = async (id: string) => {
+    const team = await Teams.findByPk(id);
     return team;
-  }
+  };
 }
