@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import LoginService from '../services/LoginService';
-import createToken from '../middlewares/jwt';
+import { createToken } from '../middlewares/jwt';
 
 export default class LoginController {
   public loginService: LoginService;
@@ -19,5 +19,10 @@ export default class LoginController {
     const token = createToken({ id, username, role });
 
     return res.status(200).json({ token });
+  };
+
+  public validate = async (req: Request, res: Response) => {
+    const { role } = req.body.user;
+    return res.status(200).json({ role });
   };
 }
