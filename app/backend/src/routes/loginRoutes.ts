@@ -5,6 +5,6 @@ import LoginController from '../controllers/LoginController';
 const loginController = new LoginController();
 const routerLogin = Router();
 
-routerLogin.post('/login', validateLogin, loginController.login);
+routerLogin.post('/', validateLogin, loginController.login);
 
 export default routerLogin;
