@@ -1,4 +1,4 @@
-import { BOOLEAN, INTEGER, Model } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 import db from '.';
 import Teams from './Teams';
 
@@ -13,27 +13,27 @@ class Matches extends Model {
 
 Matches.init({
   id: {
-    type: INTEGER,
+    type: DataTypes.INTEGER,
     primaryKey: true,
   },
   homeTeamId: {
-    type: INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   homeTeamGoals: {
-    type: INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   awayTeamId: {
-    type: INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   awayTeamGoals: {
-    type: INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   inProgress: {
-    type: BOOLEAN,
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 }, {
