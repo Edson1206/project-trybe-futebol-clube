@@ -16,4 +16,9 @@ export default class MatchService {
     const matchSave = await Match.create({ ...match, inProgress: true });
     return { code: 201, message: matchSave };
   };
+
+  public matchFinished = async (id: string) => {
+    await Match.update({ inProgress: false }, { where: { id } });
+    return { code: 200, message: 'Finished' };
+  };
 }
