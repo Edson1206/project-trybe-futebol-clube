@@ -9,7 +9,14 @@ export default class MatchController {
   }
 
   public getMatches = async (req: Request, res: Response) => {
-    const matches = await this.matchService.getAllMatches();
+    const { inProgress } = req.query;
+    let matches = await this.matchService.getAllMatches();
+
+    if (inProgress === 'true' || inProgress === 'false') {
+      const boolean = inProgress === 'true';
+      matches = matches.filter((match) => match.inProgress === boolean);
+    }
+
     return res.status(200).json(matches);
   };
 }
