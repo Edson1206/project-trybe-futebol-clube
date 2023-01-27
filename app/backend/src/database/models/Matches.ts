@@ -13,6 +13,8 @@ class Matches extends Model {
 
 Matches.init({
   id: {
+    allowNull: false,
+    autoIncrement: true,
     type: DataTypes.INTEGER,
     primaryKey: true,
   },
