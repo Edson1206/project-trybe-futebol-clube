@@ -21,4 +21,12 @@ export default class MatchService {
     await Match.update({ inProgress: false }, { where: { id } });
     return { code: 200, message: 'Finished' };
   };
+
+  public updateMatch = async (id: string, match: IMatch) => {
+    await Match.update(
+      { homeTeamGoals: match.homeTeamGoals, awayTeamGoals: match.awayTeamGoals },
+      { where: { id } },
+    );
+    return { code: 200, message: 'Updated' };
+  };
 }
