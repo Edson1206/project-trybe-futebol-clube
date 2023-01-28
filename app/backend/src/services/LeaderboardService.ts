@@ -1,6 +1,7 @@
 import sequelize from '../database/models';
 import homeLeaderboardQuery from '../utils/homeLeaderboardQuery';
 import awayLeaderboardQuery from '../utils/awayLeaderboardQuery';
+import fullLeaderboardQuery from '../utils/fullLeaderboardQuery';
 
 export default class LeaderboardService {
   constructor(private _model = sequelize) { }
@@ -15,5 +16,11 @@ export default class LeaderboardService {
     const [getAwayLeaderboardArray] = await this._model.query(awayLeaderboardQuery);
 
     return getAwayLeaderboardArray;
+  };
+
+  public getFullLeaderboard = async () => {
+    const [getFullLeaderboardArray] = await this._model.query(fullLeaderboardQuery);
+
+    return getFullLeaderboardArray;
   };
 }

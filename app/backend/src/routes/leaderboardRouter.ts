@@ -6,5 +6,6 @@ const routerLeaderboard = Router();
 
 routerLeaderboard.get('/home', leaderboardController.getHomeLeaderboard);
 routerLeaderboard.get('/away', leaderboardController.getAwayLeaderboard);
+routerLeaderboard.get('/', leaderboardController.getFullLeaderboard);
 
 export default routerLeaderboard;
