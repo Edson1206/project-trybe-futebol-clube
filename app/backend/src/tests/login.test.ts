@@ -39,8 +39,8 @@ describe("testing the login endpoint", () => {
   });
 
   it("testing a invalid login", async () => {
-    const email = "Casemiro";
-    const password = "meteu_essa";
+    const email = "";
+    const password = "";
     const result = await chai
       .request(app)
       .post("/login")
